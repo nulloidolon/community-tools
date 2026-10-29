@@ -30,6 +30,8 @@ test:
 	go test $$(go list ./... | grep -v /pkg/recovery)
 	@echo "Running JS derive tests..."
 	bun run src/derive.test.js
+	@echo "Running JS decryption tests..."
+	bun run src/aes_gcm.test.js
 
 test-cgo:
 	@echo "Running all Go tests (requires CGo + libgodkls)..."
